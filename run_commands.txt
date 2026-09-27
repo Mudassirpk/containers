@@ -1,0 +1,7 @@
+MILVUS_ATTU:
+
+"docker run -d --name attu \
+  -p 5050:3000 \
+  -e MILVUS_ADDRESS=host.docker.internal:19530 \
+  -v attu-data:/data \
+  zilliz/attu:v3.0.0-beta.6""

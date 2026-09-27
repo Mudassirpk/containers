@@ -1,0 +1,18 @@
+services:
+  typesense:
+    image: typesense/typesense:29.0
+    ports:
+      - "8108:8108"
+    volumes:
+      - ./typesense-data:/data
+      - ./typesense-analytics:/data/analytics  # separate folder for analytics
+    command: >
+      --data-dir /data
+      --api-key=xyz
+      --max-per-page 500
+      --enable-search-analytics
+      --analytics-dir /data/analytics
+      --analytics-flush-interval 60
+      --analytics-minute-rate-limit 9999
+    restart: unless-stopped
+
